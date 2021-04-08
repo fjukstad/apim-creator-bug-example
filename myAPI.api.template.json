@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    },
+    "serviceUrl": {
+      "type": "object"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "type": "ht",
+        "isCurrent": false,
+        "subscriptionRequired": false,
+        "displayName": "myAPI",
+        "serviceUrl": "[parameters('serviceUrl').myAPI]",
+        "path": "my-api",
+        "protocols": [
+          "https"
+        ],
+        "value": "openapi: \"3.0.0\"\n\ninfo:\n  title: myAPI\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8000\npaths:\n  /:\n    get:\n      summary: myAPI\n      description: This is myAPI\n      operationId: hello.post_greeting\n      responses:\n        200:\n          description: the response\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"hello from myAPI!\"\n",
+        "format": "openapi",
+        "apiType": "ht"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/myAPI')]",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "apiVersion": "2019-01-01",
+      "dependsOn": []
+    }
+  ]
+}
