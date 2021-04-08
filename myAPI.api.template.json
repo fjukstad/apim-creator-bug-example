@@ -12,7 +12,7 @@
   "resources": [
     {
       "properties": {
-        "type": "ht",
+        "type": "http",
         "isCurrent": false,
         "subscriptionRequired": false,
         "displayName": "myAPI",
@@ -23,7 +23,7 @@
         ],
         "value": "openapi: \"3.0.0\"\ninfo:\n  title: myAPI\n  version: \"1.0\"\nservers:\n  - url: http://localhost:8000\npaths:\n  /:\n    get:\n      summary: myAPI\n      description: This is myAPI\n      operationId: hello.post_greeting\n      responses:\n        200:\n          description: the response\n          content:\n            text/plain:\n              schema:\n                type: string\n                example: \"hello from myAPI!\"\n",
         "format": "openapi",
-        "apiType": "ht"
+        "apiType": "http"
       },
       "name": "[concat(parameters('ApimServiceName'), '/myAPI')]",
       "type": "Microsoft.ApiManagement/service/apis",

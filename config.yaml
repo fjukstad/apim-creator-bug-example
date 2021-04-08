@@ -2,7 +2,7 @@ version: 0.0.1
 apimServiceName: myAPIMService
 apis:
   - name: myAPI
-    type: ht
+    type: http
     openApiSpec: swagger.yaml
     suffix: my-api
     products: myProduct
